@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace fabryka
 {
-    class Program
+    public class Program
     {
         public static void Main(string[] args)
         {
-
+            
         }
     }
 }

@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="factory.cs" />
     <Compile Include="users.cs" />
     <Compile Include="products.cs" />
     <Compile Include="Interface1.cs" />

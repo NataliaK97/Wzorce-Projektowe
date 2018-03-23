@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace fabryka
 {
-    public class produsts : Interface1
+    public class products : Interface1
     {
         public String listItems()
         {

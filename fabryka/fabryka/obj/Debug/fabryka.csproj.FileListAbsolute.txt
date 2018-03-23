@@ -1,0 +1,7 @@
+D:\UNITY\Wzorce-Projektowe\fabryka\fabryka\bin\Debug\fabryka.exe.config
+D:\UNITY\Wzorce-Projektowe\fabryka\fabryka\bin\Debug\fabryka.exe
+D:\UNITY\Wzorce-Projektowe\fabryka\fabryka\bin\Debug\fabryka.pdb
+D:\UNITY\Wzorce-Projektowe\fabryka\fabryka\obj\Debug\fabryka.csprojResolveAssemblyReference.cache
+D:\UNITY\Wzorce-Projektowe\fabryka\fabryka\obj\Debug\fabryka.csproj.CoreCompileInputs.cache
+D:\UNITY\Wzorce-Projektowe\fabryka\fabryka\obj\Debug\fabryka.exe
+D:\UNITY\Wzorce-Projektowe\fabryka\fabryka\obj\Debug\fabryka.pdb

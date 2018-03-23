@@ -12,31 +12,46 @@ namespace fabryka
         {
             Interface1 ob = null;
 
-            try
+            string nameC;
+            do
             {
-                ob = factory.getObject("users");
-                ob.addItem("Osoba1");
-                ob.addItem("Osoba2");
-                Console.WriteLine(ob.listItems());
+                Console.WriteLine("Podaj nazwę klasy (users lub products) ");
+                nameC = Console.ReadLine();
             }
-            catch (Exception e)
-            {
-                Console.WriteLine("Operacja nie powiodła się");
-            }
+            while (nameC != "products" && nameC != "users");
 
-            try
-            {
-                ob = factory.getObject("products");
+            Console.WriteLine("Wybrałeś klasę: {0}", nameC);
 
-                ob.addItem("produkt1");
-                ob.addItem("produkt2");
-                Console.WriteLine(ob.listItems());
-            }
-            catch (Exception e)
+            if(nameC=="users")
             {
-                Console.WriteLine("Operacja nie powiodła się");
+                try
+                {
+                    ob = factory.getObject("users");
+                    ob.addItem("Osoba1");
+                    ob.addItem("Osoba2");
+                    ob.addItem("Osoba3");
+                    Console.WriteLine(ob.listItems());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Operacja nie powiodła się");
+                }
             }
-
+            if (nameC=="products")
+            {
+                try
+                {
+                    ob = factory.getObject("products");
+                    ob.addItem("produkt1");
+                    ob.addItem("produkt2");
+                    ob.addItem("produkt3");
+                    Console.WriteLine(ob.listItems());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Operacja nie powiodła się");
+                }
+            }
             Console.Read();
         }
     }

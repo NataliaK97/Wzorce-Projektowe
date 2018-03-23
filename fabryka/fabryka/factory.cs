@@ -12,15 +12,13 @@ namespace fabryka
     {
         public static Interface1 getObject(string className)
         {
-            if (className.Equals("Users"))
+            if (className.Equals("users"))
                 return new users();
 
-            if (className.Equals("Products"))
+            if (className.Equals("products"))
                 return new products();
 
             throw new Exception("Nie można utworzyć nowego obiektu!");
         }
-    }
-}
     }
 }

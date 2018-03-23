@@ -8,17 +8,29 @@ namespace fabryka
 {
     public class users : Interface1
     {
-        public String listItems()
+        List<String> list;
+        public users()
         {
-            return "Lista uzytkowników";
+            list = new List<string>();
         }
-        public String addItem()
+
+        string Interface1.addItem(String user)
         {
-            return "Dodaje uzytkownika";
+            list.Add(user);
+            return "Dodano nowego uzytkwonika: " + user;
         }
-        public String deleteItem()
+
+        string Interface1.deleteItem(int number)
         {
-            return "Usuwa uzytkownika";
+            list.RemoveAt(number);
+            return "Usunieto uzytkwonika z numerem: " + number;
+        }
+
+        string Interface1.listItems()
+        {
+            foreach (object user in list)
+                Console.WriteLine("Nazwa uzytkownika: " + user);
+            return "";
         }
     }
 }

@@ -8,17 +8,29 @@ namespace fabryka
 {
     public class products : Interface1
     {
-        public String listItems()
+        List<String> list;
+        public products()
         {
-            return "Lista produktów";
+            list = new List<string>();
         }
-        public String addItem()
+
+        string Interface1.addItem(String user)
         {
-            return "Dodaje produkt";
+            list.Add(user);
+            return "Dodano nowy produkt: " + user;
         }
-        public String deleteItem()
+
+        string Interface1.deleteItem(int number)
         {
-            return "Usuwa produkt";
+            list.RemoveAt(number);
+            return "Usunieto produkt z numerem: " + number;
+        }
+
+        string Interface1.listItems()
+        {
+            foreach (object user in list)
+                Console.WriteLine("Nazwa produktu: " + user);
+            return "";
         }
     }
 }

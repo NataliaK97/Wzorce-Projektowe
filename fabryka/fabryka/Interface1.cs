@@ -9,7 +9,7 @@ namespace fabryka
     public interface Interface1
     {
         String listItems();
-        String addItem();
-        String deleteItem();
+        String addItem(String user);
+        String deleteItem(int number);
     }
 }

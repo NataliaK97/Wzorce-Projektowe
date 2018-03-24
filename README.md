@@ -1,1 +1,0 @@
-# Wzorce-Projektowe

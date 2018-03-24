@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.delButton = new System.Windows.Forms.Button();
-            this.sortButton2 = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.sortButton1 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -37,6 +36,7 @@
             this.addButton2 = new System.Windows.Forms.Button();
             this.delButton2 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,15 +49,6 @@
             this.delButton.Text = "usuń";
             this.delButton.UseVisualStyleBackColor = true;
             this.delButton.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // sortButton2
-            // 
-            this.sortButton2.Location = new System.Drawing.Point(631, 241);
-            this.sortButton2.Name = "sortButton2";
-            this.sortButton2.Size = new System.Drawing.Size(114, 65);
-            this.sortButton2.TabIndex = 1;
-            this.sortButton2.Text = "sortuj rosnąco";
-            this.sortButton2.UseVisualStyleBackColor = true;
             // 
             // addButton
             // 
@@ -75,17 +66,19 @@
             this.sortButton1.Name = "sortButton1";
             this.sortButton1.Size = new System.Drawing.Size(114, 63);
             this.sortButton1.TabIndex = 4;
-            this.sortButton1.Text = "sortuj malejąco";
+            this.sortButton1.Text = "sortuj";
             this.sortButton1.UseVisualStyleBackColor = true;
+            this.sortButton1.Click += new System.EventHandler(this.sortButton1_Click);
             // 
             // listView1
             // 
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(299, 61);
+            this.listView1.Location = new System.Drawing.Point(362, 61);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(300, 354);
-            this.listView1.TabIndex = 2;
+            this.listView1.Size = new System.Drawing.Size(184, 354);
+            this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.VirtualListSize = 1;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // textBox1
@@ -96,6 +89,7 @@
             this.textBox1.TabIndex = 5;
             this.textBox1.Text = "podaj nazwę nowego użytkownika ";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // addButton2
             // 
@@ -109,25 +103,37 @@
             // 
             // delButton2
             // 
-            this.delButton2.Location = new System.Drawing.Point(12, 189);
+            this.delButton2.Location = new System.Drawing.Point(12, 201);
             this.delButton2.Name = "delButton2";
             this.delButton2.Size = new System.Drawing.Size(175, 34);
             this.delButton2.TabIndex = 7;
             this.delButton2.Text = "potwierdż usunięcie";
             this.delButton2.UseVisualStyleBackColor = true;
+            this.delButton2.Click += new System.EventHandler(this.delButton2_Click);
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(12, 157);
+            this.numericUpDown1.Location = new System.Drawing.Point(12, 172);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 26);
             this.numericUpDown1.TabIndex = 8;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(362, 29);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(184, 26);
+            this.textBox2.TabIndex = 9;
+            this.textBox2.Text = "lista użytkowników";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.delButton2);
             this.Controls.Add(this.addButton2);
@@ -135,10 +141,10 @@
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.sortButton1);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.sortButton2);
             this.Controls.Add(this.delButton);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -150,12 +156,12 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button delButton;
         private System.Windows.Forms.Button sortButton1;
-        private System.Windows.Forms.Button sortButton2;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button addButton2;
         private System.Windows.Forms.Button delButton2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace BazaApp
 {
@@ -74,15 +75,22 @@ namespace BazaApp
             addMenu();
             delMenu();
 
+
             ListViewItem item1 = new ListViewItem("Przykład1");
             ListViewItem item2 = new ListViewItem("Przykład2");
             ListViewItem item3 = new ListViewItem("Przykład3");
             ListViewItem item4 = new ListViewItem("Przykład4");
+            ListViewItem item5 = new ListViewItem("Przykład5");
+            ListViewItem item6 = new ListViewItem("Przykład6");
+            ListViewItem item7 = new ListViewItem("Przykład7");
 
             listView1.Items.Add(item1);
             listView1.Items.Add(item2);
             listView1.Items.Add(item3);
             listView1.Items.Add(item4);
+            listView1.Items.Add(item5);
+            listView1.Items.Add(item6);
+            listView1.Items.Add(item7);
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -103,6 +111,11 @@ namespace BazaApp
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             //index usuwanego
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

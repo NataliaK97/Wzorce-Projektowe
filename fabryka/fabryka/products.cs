@@ -14,10 +14,10 @@ namespace fabryka
             list = new List<string>();
         }
 
-        string Interface1.addItem(String user)
+        string Interface1.addItem(String product)
         {
-            list.Add(user);
-            return "Dodano nowy produkt: " + user;
+            list.Add(product);
+            return "Dodano nowy produkt: " + product;
         }
 
         string Interface1.deleteItem(int number)
@@ -31,6 +31,10 @@ namespace fabryka
             foreach (object user in list)
                 Console.WriteLine("Nazwa produktu: " + user);
             return "";
+        }
+        string Interface1.sortItems()
+        {
+            return "posortowano";
         }
     }
 }

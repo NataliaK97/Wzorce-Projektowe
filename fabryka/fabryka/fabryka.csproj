@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="priviledges.cs" />
     <Compile Include="factory.cs" />
     <Compile Include="users.cs" />
     <Compile Include="products.cs" />

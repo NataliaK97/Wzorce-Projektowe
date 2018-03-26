@@ -18,6 +18,9 @@ namespace fabryka
             if (className.Equals("products"))
                 return new products();
 
+            if (className.Equals("priviledges"))
+                return new priviledges();
+
             throw new Exception("Nie można utworzyć nowego obiektu!");
         }
     }

@@ -11,5 +11,6 @@ namespace fabryka
         String listItems();
         String addItem(String user);
         String deleteItem(int number);
+        String sortItems();
     }
 }

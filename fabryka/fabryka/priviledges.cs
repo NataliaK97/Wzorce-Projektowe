@@ -6,30 +6,30 @@ using System.Threading.Tasks;
 
 namespace fabryka
 {
-    public class users : Interface1
+    class priviledges : Interface1
     {
         List<String> list;
-        public users()
+        public priviledges()
         {
             list = new List<string>();
         }
 
-        string Interface1.addItem(String user)
+        string Interface1.addItem(String privilege)
         {
-            list.Add(user);
-            return "Dodano nowego uzytkwonika: " + user;
+            list.Add(privilege);
+            return "Dodano nowy przywilej: " + privilege;
         }
 
         string Interface1.deleteItem(int number)
         {
             list.RemoveAt(number);
-            return "Usunieto uzytkwonika z numerem: " + number;
+            return "Usunieto przywilej z numerem: " + number;
         }
 
         string Interface1.listItems()
         {
             foreach (object user in list)
-                Console.WriteLine("Nazwa uzytkownika: " + user);
+                Console.WriteLine("Przywilej: " + user);
             return "";
         }
         string Interface1.sortItems()

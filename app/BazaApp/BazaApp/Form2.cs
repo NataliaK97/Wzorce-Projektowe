@@ -13,47 +13,22 @@ namespace BazaApp
 {
     public partial class Form2 : Form
     {
-        private static string stringConnection = "Host=127.0.0.1;Port=3306;user id=root;Password=;database=mydb";
-        private MySqlConnection baseConnection = new MySqlConnection(stringConnection);
-        public Form2()
+        Interface factoryInt = null;
+        Form1 form1 = null;
+
+        public Form2(Form1 form1, Interface fc)
         {
             InitializeComponent();
+            this.form1 = form1;
+            factoryInt = fc;
         }
+
 
         private void addButon_Click(object sender, EventArgs e)
         {
-            string addName = textBoxNewName.Text;
-
-            if (string.IsNullOrEmpty(addName))
-            {
-                MessageBox.Show("Nie uzupełniłeś pola nazwą użytkownika.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (addName.Length > 65)
-            {
-                MessageBox.Show("Podana nazwa jest za długa", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            string query = $"INSERT INTO users (name) VALUES ('{addName}');";
-            MySqlCommand commandDatabase = new MySqlCommand(query, baseConnection);
-            commandDatabase.CommandTimeout = 90;
-
-            try
-            {
-                baseConnection.Open();
-                commandDatabase.ExecuteReader();
-                MessageBox.Show("Operacja dodawania zakończona powodzeniem :)");
-                baseConnection.Close();
-                textBoxNewName.Text = string.Empty;
-                this.Hide();
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            if (factoryInt.AddItem(textBoxNewName.Text))
+                textBoxNewName.Text = "";
+            
         }
 
         private void cancelButon_Click(object sender, EventArgs e)
@@ -62,11 +37,18 @@ namespace BazaApp
             {
                 this.Hide();
                 this.Close();
+                factoryInt.Load();
+                form1.CopyGridView(factoryInt.DataList, form1.dataGridView1);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void textBoxNewName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

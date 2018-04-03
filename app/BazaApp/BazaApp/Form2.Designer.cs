@@ -50,6 +50,7 @@
             this.textBoxNewName.Size = new System.Drawing.Size(363, 26);
             this.textBoxNewName.TabIndex = 1;
             this.textBoxNewName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxNewName.TextChanged += new System.EventHandler(this.textBoxNewName_TextChanged);
             // 
             // addButon
             // 
@@ -67,7 +68,7 @@
             this.cancelButon.Name = "cancelButon";
             this.cancelButon.Size = new System.Drawing.Size(152, 62);
             this.cancelButon.TabIndex = 3;
-            this.cancelButon.Text = "anuluj";
+            this.cancelButon.Text = "zamknij okno";
             this.cancelButon.UseVisualStyleBackColor = true;
             this.cancelButon.Click += new System.EventHandler(this.cancelButon_Click);
             // 

@@ -32,6 +32,8 @@
             this.textBoxNewName = new System.Windows.Forms.TextBox();
             this.addButon = new System.Windows.Forms.Button();
             this.cancelButon = new System.Windows.Forms.Button();
+            this.titleU = new System.Windows.Forms.Label();
+            this.titleP = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // title
@@ -42,10 +44,11 @@
             this.title.Size = new System.Drawing.Size(249, 20);
             this.title.TabIndex = 0;
             this.title.Text = "Podaj nazwę nowego użytkownika";
+            this.title.Click += new System.EventHandler(this.title_Click);
             // 
             // textBoxNewName
             // 
-            this.textBoxNewName.Location = new System.Drawing.Point(41, 74);
+            this.textBoxNewName.Location = new System.Drawing.Point(41, 70);
             this.textBoxNewName.Name = "textBoxNewName";
             this.textBoxNewName.Size = new System.Drawing.Size(363, 26);
             this.textBoxNewName.TabIndex = 1;
@@ -72,17 +75,39 @@
             this.cancelButon.UseVisualStyleBackColor = true;
             this.cancelButon.Click += new System.EventHandler(this.cancelButon_Click);
             // 
+            // titleU
+            // 
+            this.titleU.AutoSize = true;
+            this.titleU.Location = new System.Drawing.Point(38, 36);
+            this.titleU.Name = "titleU";
+            this.titleU.Size = new System.Drawing.Size(248, 20);
+            this.titleU.TabIndex = 4;
+            this.titleU.Text = "Podaj nazwę nowego uprawnienia";
+            // 
+            // titleP
+            // 
+            this.titleP.AutoSize = true;
+            this.titleP.Location = new System.Drawing.Point(37, 36);
+            this.titleP.Name = "titleP";
+            this.titleP.Size = new System.Drawing.Size(226, 20);
+            this.titleP.TabIndex = 5;
+            this.titleP.Text = "Podaj nazwę nowego produktu";
+            this.titleP.Click += new System.EventHandler(this.titleP_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 222);
+            this.Controls.Add(this.titleP);
+            this.Controls.Add(this.titleU);
             this.Controls.Add(this.cancelButon);
             this.Controls.Add(this.addButon);
             this.Controls.Add(this.textBoxNewName);
             this.Controls.Add(this.title);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,5 +119,7 @@
         private System.Windows.Forms.TextBox textBoxNewName;
         private System.Windows.Forms.Button addButon;
         private System.Windows.Forms.Button cancelButon;
+        private System.Windows.Forms.Label titleU;
+        private System.Windows.Forms.Label titleP;
     }
 }

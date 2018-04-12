@@ -15,23 +15,25 @@ namespace BazaApp
     {
         bool sort = true;
         Interface interfaceFact = null;
+        public string classs;
 
-       // private static string stringConnection = "Host=127.0.0.1;Port=3306;user id=root;Password=;database=mydb";
-       // private MySqlConnection baseConnection = new MySqlConnection(stringConnection);
+
+        //private static string stringConnection = "Host=127.0.0.1;Port=3306;user id=root;Password=;database=mydb";
+        //private MySqlConnection baseConnection = new MySqlConnection(stringConnection);
 
         public Form1()
         {
             InitializeComponent();
-            comboBox1.Items.Add("Użytkownicy");
-            comboBox1.Items.Add("Produkty");
-            comboBox1.Items.Add("Uprawnienia");
+            wybor.Items.Add("Użytkownicy");
+            wybor.Items.Add("Produkty");
+            wybor.Items.Add("Uprawnienia");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             try
             {
-                if (comboBox1.SelectedItem == null)
+                if (wybor.SelectedItem == null)
                     throw new Exception("Wybierz jedną z tabel");
             }
 
@@ -48,8 +50,8 @@ namespace BazaApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            if (comboBox1.SelectedItem == null)
+
+            /*if (comboBox1.SelectedItem == null)
                 MessageBox.Show("Wybierz jedną z tabel");
             
             if (dataGridView1.SelectedRows.Count == 0 || dataGridView1.Rows.Count == 0)
@@ -67,14 +69,28 @@ namespace BazaApp
                 MessageBox.Show("Wybierz rekord!");
                 return;
             }
-            interfaceFact.DeleteItem(dellThis);
+            interfaceFact.DeleteItem(dellThis);*/
+            string dellThis=null;
+            try {
+                ListViewItem mylist = baza.SelectedItems[0];
+                dellThis = mylist.SubItems[0].Text.ToString();
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Wybierz rekord do usunięcia!" );
+                return;
+            }
+            if (interfaceFact.DeleteItem(dellThis))
+            {
+                interfaceFact.Load();
+                CopyListView(interfaceFact.MyListView, baza);
+            }
         }
 
         private void sortButton1_Click(object sender, EventArgs e)
         {
             try
             {
-                if (comboBox1.SelectedItem == null)
+                if (wybor.SelectedItem == null)
                     throw new Exception("Wybierz jedną z tabel");
             }
 
@@ -83,10 +99,11 @@ namespace BazaApp
                 MessageBox.Show("Błąd: " + ex.Message);
                 return;
             }
-
-            interfaceFact.SortItemsOverName();
-            CopyGridView(interfaceFact.DataList, dataGridView1);
-            label1.Visible = false;
+            finally
+            {
+                interfaceFact.NameSort();
+                CopyListView(interfaceFact.MyListView, baza);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -98,7 +115,8 @@ namespace BazaApp
         {
 
         }
-       /* private void ShowTable(string showList)
+        /*
+        private void ShowTable(string showList)
         {
             try
             {
@@ -118,23 +136,22 @@ namespace BazaApp
             {
                 MessageBox.Show(ex.Message);
             }
-        }*/
+        }
+        */
 
         private void get_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (comboBox1.SelectedItem == null)
+            try {
+                if (wybor.SelectedItem == null)
                     throw new Exception("Wybierz jedną z dostępnych tabel!");
             }
 
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 MessageBox.Show("Błąd: " + ex.Message);
                 return;
             }
             interfaceFact.Load();
-            CopyGridView(interfaceFact.DataList, dataGridView1);
+            CopyListView(interfaceFact.MyListView, baza);
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -142,18 +159,28 @@ namespace BazaApp
 
         }
 
+        public int Choosen(string classs)
+        {
+            if (classs == "Użytkownicy")
+                return 1;
+            if (classs == "Uprawnienia")
+                return 2;
+            if (classs == "Produkty")
+                return 3;
+            else
+                return 0;
+        }
+        
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            string classs = comboBox1.SelectedItem.ToString();
+            Form2 f2=null;
+            classs = wybor.SelectedItem.ToString();
             interfaceFact = Factory.Lista(classs);
-
-            //listView1.Columns[0].Text = factoryInt.IdRowName;
-            //listView1.Columns[1].Text = factoryInt.NameRowName;
+            Choosen(classs);
 
             try
             {
-                if (comboBox1.SelectedItem == null)
+                if (wybor.SelectedItem == null)
                     throw new Exception("Wybierz tabelę z listy!");
             }
 
@@ -165,22 +192,17 @@ namespace BazaApp
 
             interfaceFact.Load();
 
-            CopyGridView(interfaceFact.DataList, dataGridView1);
-        }
-        
-        ////////////////////////////////////////
-        
-        public void CopyGridView(DataGridView source, DataGridView destination)
-        {
-            destination.Rows.Clear();
-
-            foreach (DataGridViewRow row in source.Rows)
-                destination.Rows.Add((DataGridViewRow)row.Clone());
+            CopyListView(interfaceFact.MyListView, baza);
         }
 
-        void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+        public void CopyListView(ListView origin, ListView target) {
+            target.Items.Clear();
+            foreach (ListViewItem item in origin.Items)
+            {
+                target.Items.Add((ListViewItem)item.Clone());
+            }
+                
         }
+
     }
 }

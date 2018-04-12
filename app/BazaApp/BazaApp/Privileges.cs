@@ -13,53 +13,87 @@ namespace BazaApp
 {
     class Privileges : Interface
     {
-        DataGridView gridView;
-        bool sortOrder = false;
+        ListView myListView;
         bool sort = false;
+        public string tableName = "privileges";
+        public string idRow = "id_privilege";
+        public string nameRow = "name";
 
-        public DataGridView DataList { get => gridView; }
+        public ListView MyListView { get => myListView; }
+        public string TableName { get => tableName; }
+        public string IdRow { get => idRow; }
+        public string NameRow { get => nameRow; }
+        public bool Sort { get => sort; }
 
-        public string TableName { get => "privileges"; }
+        //private static string stringConnection = "Host=127.0.0.1;Port=3306;user id=root;Password=;database=mydb";
+        //private MySqlConnection baseConnection = new MySqlConnection(stringConnection);
 
-        public string IdRowName { get => "id_privilege"; }
-
-        public string NameRowName { get => "name"; }
-
-        public bool DeleteItem(int index)
+        public Privileges()
         {
-            bool result = false;
+            myListView = new ListView();
+
+        }
+        /*private void ShowTable(string showList)
+        {
             try
             {
-                Connect.ConnectToDB();
-                Connect.CommandDB("DELETE FROM privileges WHERE id_privilege = {index};");
+                DataTable table = new DataTable();
+                string query = $"SELECT * FROM users {showList};";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, baseConnection);
+                baseConnection.Open();
+
+                adapter.Fill(table);
+                dataGridView1.DataSource = table;
+                dataGridView1.AutoResizeColumns();
+
+                baseConnection.Close();
+                dataGridView1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }*/
+
+
+
+
+        public bool DeleteItem(string number)
+        {
+            bool r = false;
+            try
+            {
+                Connect.ConnectBase();
+                Connect.CommandBase("DELETE FROM privileges WHERE id_privilege =" + number);
                 Connect.OpenDB();
                 int deleter = Connect.ExecuteNonQuery();
                 if (deleter == 0)
                     throw new Exception("Brak rekordu");
                 else
                 {
-                    result = true;
+                    r = true;
+                    MessageBox.Show("Usuwanie zakończone powidzeniem");
                 }
             }
             catch (Exception ex)
             {
-                result = false;
+                r = false;
                 MessageBox.Show("Błąd usuwania");
             }
             finally
             {
-                if (Connect.DatabaseConnection != null)
-                    if (Connect.DatabaseConnection.State == ConnectionState.Open)
+                if (Connect.DataBaseConnection != null)
+                    if (Connect.DataBaseConnection.State == ConnectionState.Open)
                         Connect.CloseDB();
             }
-            return result;
+            return r;
         }
 
-        bool Interface.AddItem(string name)
+        bool Interface.AddItem(string str)
         {
-            bool result = false;
-            Connect.ConnectToDB();
-            Connect.CommandDB("INSERT INTO privileges (name) VALUES ('{name}');");
+            bool r = false;
+            Connect.ConnectBase();
+            Connect.CommandBase("INSERT INTO privileges (name) VALUES ('" + str + "');");
 
             try
             {
@@ -71,7 +105,8 @@ namespace BazaApp
                 }
                 else
                 {
-                    result = true;
+                    r = true;
+                    MessageBox.Show("Dodawanie zakończone powodzeniem");
                 }
             }
             catch (Exception ex)
@@ -82,23 +117,23 @@ namespace BazaApp
             {
                 Connect.CloseDB();
             }
-            return result;
+            return r;
         }
 
-        void Interface.SortItemsOverName()
+        void Interface.NameSort()
         {
-            if (sort == true)
-            {
-                Connect.DataToFactoryClass(this, "ORDER BY users.name ASC");
 
-                sort = false;
+            if (sort == false)
+            {
+                Connect.DataToFactoryClass(this, " ORDER BY name DESC");
+                sort = true;
             }
             else
             {
-                Connect.DataToFactoryClass(this, "ORDER BY users.name DESC");
-                //ShowTable(tekst);
-                sort = true;
+                Connect.DataToFactoryClass(this, " ORDER BY name ASC");
+                sort = false;
             }
+
         }
 
         void Interface.Load(string orderBy)

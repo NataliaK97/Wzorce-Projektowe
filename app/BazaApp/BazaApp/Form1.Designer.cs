@@ -32,16 +32,17 @@
             this.addButton = new System.Windows.Forms.Button();
             this.sortButton1 = new System.Windows.Forms.Button();
             this.get = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.wybor = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.baza = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // delButton
             // 
-            this.delButton.Location = new System.Drawing.Point(540, 191);
+            this.delButton.Location = new System.Drawing.Point(600, 167);
             this.delButton.Name = "delButton";
             this.delButton.Size = new System.Drawing.Size(217, 65);
             this.delButton.TabIndex = 0;
@@ -51,7 +52,7 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(540, 119);
+            this.addButton.Location = new System.Drawing.Point(600, 95);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(217, 66);
             this.addButton.TabIndex = 3;
@@ -61,7 +62,7 @@
             // 
             // sortButton1
             // 
-            this.sortButton1.Location = new System.Drawing.Point(540, 262);
+            this.sortButton1.Location = new System.Drawing.Point(600, 238);
             this.sortButton1.Name = "sortButton1";
             this.sortButton1.Size = new System.Drawing.Size(217, 63);
             this.sortButton1.TabIndex = 4;
@@ -71,7 +72,7 @@
             // 
             // get
             // 
-            this.get.Location = new System.Drawing.Point(540, 331);
+            this.get.Location = new System.Drawing.Point(600, 307);
             this.get.Name = "get";
             this.get.Size = new System.Drawing.Size(217, 61);
             this.get.TabIndex = 11;
@@ -79,31 +80,19 @@
             this.get.UseVisualStyleBackColor = true;
             this.get.Click += new System.EventHandler(this.get_Click);
             // 
-            // dataGridView1
+            // wybor
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(46, 38);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(461, 400);
-            this.dataGridView1.TabIndex = 14;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(540, 61);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(217, 28);
-            this.comboBox1.TabIndex = 15;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.wybor.FormattingEnabled = true;
+            this.wybor.Location = new System.Drawing.Point(600, 61);
+            this.wybor.Name = "wybor";
+            this.wybor.Size = new System.Drawing.Size(217, 28);
+            this.wybor.TabIndex = 15;
+            this.wybor.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(592, 38);
+            this.label2.Location = new System.Drawing.Point(651, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 20);
             this.label2.TabIndex = 16;
@@ -117,15 +106,40 @@
             this.label1.Size = new System.Drawing.Size(0, 20);
             this.label1.TabIndex = 17;
             // 
+            // baza
+            // 
+            this.baza.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.baza.FullRowSelect = true;
+            this.baza.Location = new System.Drawing.Point(50, 28);
+            this.baza.MultiSelect = false;
+            this.baza.Name = "baza";
+            this.baza.Size = new System.Drawing.Size(505, 437);
+            this.baza.TabIndex = 0;
+            this.baza.UseCompatibleStateImageBehavior = false;
+            this.baza.View = System.Windows.Forms.View.Details;
+            this.baza.VirtualListSize = 1;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 100;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "NAME";
+            this.columnHeader2.Width = 300;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 477);
+            this.ClientSize = new System.Drawing.Size(871, 477);
+            this.Controls.Add(this.baza);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.wybor);
             this.Controls.Add(this.get);
             this.Controls.Add(this.sortButton1);
             this.Controls.Add(this.addButton);
@@ -133,7 +147,6 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,10 +158,12 @@
         private System.Windows.Forms.Button delButton;
         private System.Windows.Forms.Button sortButton1;
         private System.Windows.Forms.Button get;
-        public System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox wybor;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.ListView baza;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }
 

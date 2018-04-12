@@ -9,13 +9,14 @@ namespace BazaApp
 {
     public interface Interface
     {
-        DataGridView DataList { get; }
-        bool DeleteItem(int index);
-        string IdRowName { get; }
-        string NameRowName { get; }
+        ListView MyListView { get; }
+        bool DeleteItem(string number);
+        string IdRow { get; }
+        string NameRow { get; }
+        bool Sort { get; }
         bool AddItem(string name);
-        void SortItemsOverName();
-        void Load(string orderBy = null);
+        void NameSort();
+        void Load(string sort = null);
         string TableName { get; }
     }
 }

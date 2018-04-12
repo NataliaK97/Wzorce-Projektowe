@@ -12,38 +12,35 @@ namespace BazaApp
 {
     public partial class Factory : Form
     {
-            public static Interface Lista(string className)
+            public static Interface Lista(string classs)
             {
                 try
                 {
-                    if (className == "Użytkownicy")
+                if (classs == "Uprawnienia")
+                    return new Privileges();
+                if (classs == "Użytkownicy")
                         return new Users();
-
-                    if (className == "Produkty")
-                        return new Products();
-
-                    if (className == "Uprawnienia")
-                        return new Privileges();
-
-                    throw new Exception("Nie odnaleziono klasy do utworzenia!");
-                }
-                catch (Exception exc)
+                if (classs == "Produkty")
+                    return new Products();
+                throw new NotImplementedException();
+            }
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Nie udało się utworzyć klasy.\n\nTreśc błedu: " + exc.Message);
+                    MessageBox.Show("Błąd: " + ex.Message);
                     return null;
                 }
             }
 
             private void InitializeComponent()
             {
-                this.SuspendLayout();
-                // 
-                // Factory
-                // 
-                this.ClientSize = new System.Drawing.Size(176, 118);
-                this.Name = "Factory";
-                this.Load += new System.EventHandler(this.Factory_Load);
-                this.ResumeLayout(false);
+            this.SuspendLayout();
+            // 
+            // Factory
+            // 
+            this.ClientSize = new System.Drawing.Size(778, 394);
+            this.Name = "Factory";
+            this.Load += new System.EventHandler(this.Factory_Load);
+            this.ResumeLayout(false);
 
             }
 

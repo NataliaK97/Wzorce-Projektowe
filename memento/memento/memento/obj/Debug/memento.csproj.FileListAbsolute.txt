@@ -1,0 +1,10 @@
+c:\users\nkmie\source\repos\memento\memento\bin\Debug\memento.exe.config
+c:\users\nkmie\source\repos\memento\memento\bin\Debug\memento.exe
+c:\users\nkmie\source\repos\memento\memento\bin\Debug\memento.pdb
+c:\users\nkmie\source\repos\memento\memento\obj\Debug\memento.csprojResolveAssemblyReference.cache
+c:\users\nkmie\source\repos\memento\memento\obj\Debug\memento.Form1.resources
+c:\users\nkmie\source\repos\memento\memento\obj\Debug\memento.Properties.Resources.resources
+c:\users\nkmie\source\repos\memento\memento\obj\Debug\memento.csproj.GenerateResource.cache
+c:\users\nkmie\source\repos\memento\memento\obj\Debug\memento.csproj.CoreCompileInputs.cache
+c:\users\nkmie\source\repos\memento\memento\obj\Debug\memento.exe
+c:\users\nkmie\source\repos\memento\memento\obj\Debug\memento.pdb

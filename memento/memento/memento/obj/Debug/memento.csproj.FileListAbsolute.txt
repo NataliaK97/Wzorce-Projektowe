@@ -8,3 +8,13 @@ c:\users\nkmie\source\repos\memento\memento\obj\Debug\memento.csproj.GenerateRes
 c:\users\nkmie\source\repos\memento\memento\obj\Debug\memento.csproj.CoreCompileInputs.cache
 c:\users\nkmie\source\repos\memento\memento\obj\Debug\memento.exe
 c:\users\nkmie\source\repos\memento\memento\obj\Debug\memento.pdb
+D:\UNITY\Wzorce-Projektowe\memento\memento\memento\bin\Debug\memento.exe.config
+D:\UNITY\Wzorce-Projektowe\memento\memento\memento\bin\Debug\memento.exe
+D:\UNITY\Wzorce-Projektowe\memento\memento\memento\bin\Debug\memento.pdb
+D:\UNITY\Wzorce-Projektowe\memento\memento\memento\obj\Debug\memento.csprojResolveAssemblyReference.cache
+D:\UNITY\Wzorce-Projektowe\memento\memento\memento\obj\Debug\memento.Form1.resources
+D:\UNITY\Wzorce-Projektowe\memento\memento\memento\obj\Debug\memento.Properties.Resources.resources
+D:\UNITY\Wzorce-Projektowe\memento\memento\memento\obj\Debug\memento.csproj.GenerateResource.cache
+D:\UNITY\Wzorce-Projektowe\memento\memento\memento\obj\Debug\memento.csproj.CoreCompileInputs.cache
+D:\UNITY\Wzorce-Projektowe\memento\memento\memento\obj\Debug\memento.exe
+D:\UNITY\Wzorce-Projektowe\memento\memento\memento\obj\Debug\memento.pdb

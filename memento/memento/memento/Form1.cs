@@ -32,7 +32,7 @@ namespace memento
             textBox1.Text = osoba.Name;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             if (licz < 10)
             {
@@ -43,7 +43,7 @@ namespace memento
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
         {
             if (licz > 1)
             {

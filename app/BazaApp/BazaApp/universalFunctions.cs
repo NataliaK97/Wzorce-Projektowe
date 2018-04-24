@@ -9,7 +9,8 @@ using MySql.Data.MySqlClient;
 
 namespace BazaApp
 {
-    public static class Connect
+    
+    public class universalFunctions
     {
         static MySqlConnection baseConnection;
         static MySqlCommand baseCommand;
@@ -82,6 +83,76 @@ namespace BazaApp
         public static void CommandBase(string query) {
             baseCommand = new MySqlCommand(query, DataBaseConnection) {
                 CommandTimeout = 90 };
+        }
+
+        // do memento
+        private String text;
+        public universalFunctions(String thisText)
+        {
+            this.text = thisText;
+        }
+        public universalFunctions()
+        {
+            this.text = "";
+        }
+        public universalFunctions(String id, String name, String table)
+        {
+            String commit;
+            commit = "id:" + id + "/name:" + name + "/table:" + table + "/";
+            this.text = commit;
+        }
+        public String[] getText()
+        {
+            int number = 0;
+            string[] titles = new string[3]
+            {
+                "id:","name:","table:"
+            };
+            string isGood = "";
+            string[] split = new string[3]
+            {
+                "","",""
+            };
+            for (int i = 0; i < text.Length - 1; i++)
+            {
+                if (isGood.Equals(titles[number]))
+                {
+                    if (text[i] != '/')
+                        split[number] += text[i];
+                    else
+                    {
+                        number++;
+                        isGood = "";
+                    }
+                }
+                else
+                    isGood += text[i];
+            }
+            return split;
+        }
+
+        public void setText(String id, String name, String table)
+        {
+            String commit;
+            commit = "id:" + id + "/name:" + name + "/table:" + table + "/";
+            this.text = commit;
+        }
+
+        public Memento createMemento()
+        {
+            return new Memento(this.text);
+        }
+
+        public void renewMemento(Memento memento)
+        {
+            try
+            {
+                this.text = memento.getText();
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
     }
 }

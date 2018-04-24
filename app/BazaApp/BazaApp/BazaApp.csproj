@@ -47,8 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Caretaker.cs" />
-    <Compile Include="Connect.cs" />
-    <Compile Include="Creator.cs" />
+    <Compile Include="universalFunctions.cs" />
     <Compile Include="Factory.cs">
       <SubType>Form</SubType>
     </Compile>

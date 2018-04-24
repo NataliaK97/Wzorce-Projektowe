@@ -12,6 +12,8 @@ namespace BazaApp
     
     public class universalFunctions
     {
+        ///////// do łączenia z bazą ///////// 
+
         static MySqlConnection baseConnection;
         static MySqlCommand baseCommand;
         public static MySqlCommand CommandDataBase { get => baseCommand; }
@@ -36,13 +38,10 @@ namespace BazaApp
             bool r = false;
             ConnectBase();
             CommandBase("SELECT * FROM " + factoryInt.TableName + sort);
-            //string query = "SELECT * FROM " + factoryInt.TableName + sort;
 
             try {
-                //DataTable table = new DataTable();
                 OpenDB();
                 MySqlDataReader readerr = ExecuteReader();
-                //MySqlDataAdapter adapter = new MySqlDataAdapter(query, baseConnection);
                 if (readerr.HasRows)
                 {
                     factoryInt.MyListView.Items.Clear();
@@ -53,14 +52,6 @@ namespace BazaApp
                         newItem.SubItems.Add(readerr.GetString(1));
                         factoryInt.MyListView.Items.Add(newItem);
                     }
-
-                    //DataGridView newItem=null;
-                    // = new DataGridView(readerr.GetString(0));
-                    //newItem.DataSource.Add(readerr.GetString(1));
-                    //factoryInt.DataList.Rows.Add(newItem);
-                    //adapter.Fill(table);
-                    //newItem.DataSource = factoryInt.DataList;
-                    //newItem.AutoResizeColumns();
                 }
                 else
                 {
@@ -85,7 +76,7 @@ namespace BazaApp
                 CommandTimeout = 90 };
         }
 
-        // do memento
+        ///////// do memento ///////// 
         private String text;
         public universalFunctions(String thisText)
         {
@@ -149,10 +140,7 @@ namespace BazaApp
             {
                 this.text = memento.getText();
             }
-            catch (Exception ex)
-            {
-                
-            }
+            catch (Exception ex) {}
         }
     }
 }

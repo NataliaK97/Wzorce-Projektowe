@@ -25,45 +25,21 @@ namespace BazaApp
         public string NameRow { get => nameRow; }
         public bool Sort { get => sort; }
 
-
-        //private static string stringConnection = "Host=127.0.0.1;Port=3306;user id=root;Password=;database=mydb";
-        //private MySqlConnection baseConnection = new MySqlConnection(stringConnection);
-
         public Products()
         {
             myListView = new ListView();
 
         }
-        /*private void ShowTable(string showList)
-        {
-            try
-            {
-                DataTable table = new DataTable();
-                string query = $"SELECT * FROM users {showList};";
-                MySqlDataAdapter adapter = new MySqlDataAdapter(query, baseConnection);
-                baseConnection.Open();
-
-                adapter.Fill(table);
-                dataGridView1.DataSource = table;
-                dataGridView1.AutoResizeColumns();
-
-                baseConnection.Close();
-                dataGridView1.Refresh();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }*/
+        
         public bool DeleteItem(string number)
         {
             bool r = false;
             try
             {
-                Connect.ConnectBase();
-                Connect.CommandBase("DELETE FROM products WHERE id_product =" + number);
-                Connect.OpenDB();
-                int deleter = Connect.ExecuteNonQuery();
+                universalFunctions.ConnectBase();
+                universalFunctions.CommandBase("DELETE FROM products WHERE id_product =" + number);
+                universalFunctions.OpenDB();
+                int deleter = universalFunctions.ExecuteNonQuery();
                 if (deleter == 0)
                     throw new Exception("Brak rekordu");
                 else
@@ -79,9 +55,9 @@ namespace BazaApp
             }
             finally
             {
-                if (Connect.DataBaseConnection != null)
-                    if (Connect.DataBaseConnection.State == ConnectionState.Open)
-                        Connect.CloseDB();
+                if (universalFunctions.DataBaseConnection != null)
+                    if (universalFunctions.DataBaseConnection.State == ConnectionState.Open)
+                        universalFunctions.CloseDB();
             }
             return r;
         }
@@ -89,13 +65,13 @@ namespace BazaApp
         bool Interface.AddItem(string str)
         {
             bool r = false;
-            Connect.ConnectBase();
-            Connect.CommandBase("INSERT INTO products (name)  VALUES ('" + str + "');");
+            universalFunctions.ConnectBase();
+            universalFunctions.CommandBase("INSERT INTO products (name)  VALUES ('" + str + "');");
 
             try
             {
-                Connect.OpenDB();
-                int isAdd = Connect.ExecuteNonQuery();
+                universalFunctions.OpenDB();
+                int isAdd = universalFunctions.ExecuteNonQuery();
                 if (isAdd == 0)
                 {
                     throw new Exception("Bład dodawania");
@@ -112,7 +88,7 @@ namespace BazaApp
             }
             finally
             {
-                Connect.CloseDB();
+                universalFunctions.CloseDB();
             }
             return r;
         }
@@ -122,12 +98,12 @@ namespace BazaApp
 
             if (sort == false)
             {
-                Connect.DataToFactoryClass(this, " ORDER BY name DESC");
+                universalFunctions.DataToFactoryClass(this, " ORDER BY name DESC");
                 sort = true;
             }
             else
             {
-                Connect.DataToFactoryClass(this, " ORDER BY name ASC");
+                universalFunctions.DataToFactoryClass(this, " ORDER BY name ASC");
                 sort = false;
             }
 
@@ -135,7 +111,7 @@ namespace BazaApp
 
         void Interface.Load(string orderBy)
         {
-            Connect.DataToFactoryClass(this, orderBy);
+            universalFunctions.DataToFactoryClass(this, orderBy);
         }
     }
 }

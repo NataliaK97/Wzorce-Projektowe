@@ -46,13 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caretaker.cs" />
     <Compile Include="Connect.cs" />
+    <Compile Include="Creator.cs" />
     <Compile Include="Factory.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Factory.Designer.cs">
       <DependentUpon>Factory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Memento.cs" />
     <Compile Include="Privileges.cs" />
     <Compile Include="Products.cs" />
     <Compile Include="Users.cs" />

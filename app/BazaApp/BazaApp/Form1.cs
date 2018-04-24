@@ -16,6 +16,8 @@ namespace BazaApp
         bool sort = true;
         Interface interfaceFact = null;
         public string classs;
+        Caretaker caretaker;
+        Creator creator;
 
 
         //private static string stringConnection = "Host=127.0.0.1;Port=3306;user id=root;Password=;database=mydb";
@@ -79,6 +81,7 @@ namespace BazaApp
                 MessageBox.Show("Wybierz rekord do usunięcia!" );
                 return;
             }
+            
             if (interfaceFact.DeleteItem(dellThis))
             {
                 interfaceFact.Load();

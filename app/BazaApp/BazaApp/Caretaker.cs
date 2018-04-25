@@ -18,7 +18,7 @@ namespace BazaApp
             this.form1 = thisForm1;
         }
 
-        public List<Memento> GetMemento()
+        public List<Memento> GetMementoo()
         {
             if (listaMemento==null)
             {
@@ -28,13 +28,15 @@ namespace BazaApp
         }
         public void AddMemento(Memento memento)
         {
-            GetMemento().Add(memento);
+            GetMementoo().Add(memento);
             stos = stos + 1;
         }
-        public Memento GetMemento (int numer)
+        public Memento GetMemento()
         {
-            return listaMemento[numer];
+            Memento r=null;
+            r = listaMemento[--stos];
+            listaMemento.RemoveAt(stos);
+            return r;
         }
-
     }
 }

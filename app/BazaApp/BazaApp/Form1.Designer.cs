@@ -38,6 +38,7 @@
             this.baza = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.renewButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // delButton
@@ -131,11 +132,22 @@
             this.columnHeader2.Text = "NAME";
             this.columnHeader2.Width = 300;
             // 
+            // renewButton
+            // 
+            this.renewButton.Location = new System.Drawing.Point(697, 418);
+            this.renewButton.Name = "renewButton";
+            this.renewButton.Size = new System.Drawing.Size(162, 47);
+            this.renewButton.TabIndex = 18;
+            this.renewButton.Text = "cofnij";
+            this.renewButton.UseVisualStyleBackColor = true;
+            this.renewButton.Click += new System.EventHandler(this.renewButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(871, 477);
+            this.Controls.Add(this.renewButton);
             this.Controls.Add(this.baza);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -164,6 +176,7 @@
         public System.Windows.Forms.ListView baza;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        public System.Windows.Forms.Button renewButton;
     }
 }
 

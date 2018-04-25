@@ -12,10 +12,12 @@ namespace BazaApp
 {
     public partial class Factory : Form
     {
+        public static string classsName;
             public static Interface Lista(string classs)
             {
                 try
                 {
+                classsName = classs;
                 if (classs == "Uprawnienia")
                     return new Privileges();
                 if (classs == "Użytkownicy")

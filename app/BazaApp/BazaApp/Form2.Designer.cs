@@ -78,7 +78,7 @@
             // titleU
             // 
             this.titleU.AutoSize = true;
-            this.titleU.Location = new System.Drawing.Point(38, 36);
+            this.titleU.Location = new System.Drawing.Point(47, 36);
             this.titleU.Name = "titleU";
             this.titleU.Size = new System.Drawing.Size(248, 20);
             this.titleU.TabIndex = 4;

@@ -41,13 +41,6 @@ namespace BazaApp
                 titleU.Visible = false;
                 titleP.Visible = true;
             }
-            else
-            {
-                title.Visible = false;
-                titleU.Visible = false;
-                titleP.Visible = false;
-            }
-
         }
 
         private void addButon_Click(object sender, EventArgs e)

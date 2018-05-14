@@ -5,3 +5,10 @@ C:\Users\nkmie\source\repos\dekorator\dekorator\obj\Debug\dekorator.csprojResolv
 C:\Users\nkmie\source\repos\dekorator\dekorator\obj\Debug\dekorator.csproj.CoreCompileInputs.cache
 C:\Users\nkmie\source\repos\dekorator\dekorator\obj\Debug\dekorator.exe
 C:\Users\nkmie\source\repos\dekorator\dekorator\obj\Debug\dekorator.pdb
+D:\UNITY\Wzorce-Projektowe\dekorator\dekorator\bin\Debug\dekorator.exe.config
+D:\UNITY\Wzorce-Projektowe\dekorator\dekorator\bin\Debug\dekorator.exe
+D:\UNITY\Wzorce-Projektowe\dekorator\dekorator\bin\Debug\dekorator.pdb
+D:\UNITY\Wzorce-Projektowe\dekorator\dekorator\obj\Debug\dekorator.csprojResolveAssemblyReference.cache
+D:\UNITY\Wzorce-Projektowe\dekorator\dekorator\obj\Debug\dekorator.csproj.CoreCompileInputs.cache
+D:\UNITY\Wzorce-Projektowe\dekorator\dekorator\obj\Debug\dekorator.exe
+D:\UNITY\Wzorce-Projektowe\dekorator\dekorator\obj\Debug\dekorator.pdb

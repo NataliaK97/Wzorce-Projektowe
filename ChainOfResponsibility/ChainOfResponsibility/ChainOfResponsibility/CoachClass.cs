@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace ChainOfResponsibility
 {
-    class DefenderClass : TeamMember
+    class CoachClass : TeamMember
     {
-        public DefenderClass(string name)
+        public CoachClass(string name)
         {
             this.Name = name;
         }
         public override void playersPosition(Position position)
         {
-            if (position == Position.defender)
-                Console.WriteLine("{0} play as: {1}", Name, position);
+            if (position == Position.coach)
+                Console.WriteLine("{0} is a {1}", Name, position);
             else if (next != null)
                 next.playersPosition(position);
         }

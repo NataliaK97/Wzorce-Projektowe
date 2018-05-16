@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ChainOfResponsibility
 {
-    abstract class Player
+    abstract class TeamMember
     {
         public string Name { get; set; }
-        protected Player nextPlayer;
+        protected TeamMember next;
 
-        public void SetNextPlater(Player player)
+        public void SetNext(TeamMember teamMember)
         {
-            nextPlayer = player;
+            next = teamMember;
         }
 
         public abstract void playersPosition(Position position); 

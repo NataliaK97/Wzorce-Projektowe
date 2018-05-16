@@ -42,6 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefenderClass.cs" />
+    <Compile Include="ForwardClass.cs" />
+    <Compile Include="GoalkeeperClass.cs" />
+    <Compile Include="MidfielderClass.cs" />
     <Compile Include="Players.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Program.cs" />

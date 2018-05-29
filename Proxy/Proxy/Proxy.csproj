@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DaneUżytkownika.cs" />
+    <Compile Include="ObslugaHasla.cs" />
     <Compile Include="Interface.cs" />
     <Compile Include="OcenaFactory.cs" />
     <Compile Include="Ocena.cs" />

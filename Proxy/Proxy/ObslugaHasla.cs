@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proxy
 {
-    class DaneUżytkownika :Interface
+    class ObslugaHasla :Interface
     {
         Interface Ocena;
         private string haslo;

@@ -16,11 +16,11 @@ namespace Proxy
 
             Console.WriteLine("Użytkowniku podaj hasło: ");
             string haslo = (Console.ReadLine());
-            DaneUżytkownika daneUzytkownika = new DaneUżytkownika();
-            daneUzytkownika.getHaslo(haslo);
+            ObslugaHasla obslugaHasla = new ObslugaHasla();
+            obslugaHasla.getHaslo(haslo);
             Ocena ocena = new Ocena();
 
-            if (daneUzytkownika.hasloOk)
+            if (obslugaHasla.hasloOk)
             {
                 Console.WriteLine("Podałeś poprawne hasło");
                 Console.WriteLine("Aktualna ocena to " + ocena.WyswietlOcene());
@@ -37,14 +37,14 @@ namespace Proxy
                     }
                     else
                     {
-                        daneUzytkownika.ZmienOcene(nowaOcena);
-                        Console.WriteLine("Aktualna ocena to: " + daneUzytkownika.WyswietlOcene());
+                        obslugaHasla.ZmienOcene(nowaOcena);
+                        Console.WriteLine("Aktualna ocena to: " + obslugaHasla.WyswietlOcene());
                     }
                 }
                 else
                 {
                     Console.WriteLine("Nie wprowadziłeś zmian.");
-                    Console.WriteLine("Aktualna ocena to: " + daneUzytkownika.WyswietlOcene());
+                    Console.WriteLine("Aktualna ocena to: " + obslugaHasla.WyswietlOcene());
                 }
             }
             else
